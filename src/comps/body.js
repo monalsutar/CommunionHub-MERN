@@ -2,16 +2,24 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./body.css";
 
+
 // Replace these with your actual image imports
 import P1 from "../assets/p1.jpg";
 import P2 from "../assets/p2.jpg";
 import P3 from "../assets/p3.jpg";
 import P4 from "../assets/p4.png";
 
+import img1 from "../assets/comm-2part-1.png";
+import img2 from "../assets/comm-2part-2.png";
+
+
+import FullImg from '../assets/full-img.png'
 
 export default function Body() {
     return (
         <div className="body-wrapper">
+
+
             {/* TOP SECTION: Centered heading and subheading */}
             <div className="top-section">
                 <motion.h1
@@ -48,7 +56,7 @@ export default function Body() {
                     </motion.div>
 
                     {/* Secondary Titles (two lines) */}
-                    
+
                     <motion.h2
                         className="secondary-title"
                         initial={{ opacity: 0, x: -20 }}
@@ -56,11 +64,11 @@ export default function Body() {
                         transition={{ delay: 0.6, duration: 0.8 }}
                     >
                         <div className="unite-box">
-                        Unite, Innovate,<img src={P1} alt="People 1" className="profile-pic" /> Connect, Inspires Together<img src={P2} alt="People 2" className="profile-pic" /><div className="people-badge">+8 peoples</div>
+                            Unite, Innovate,<img src={P1} alt="People 1" className="profile-pic" /> Connect, Inspires Together<img src={P2} alt="People 2" className="profile-pic" /><div className="people-badge">+8 peoples</div>
                         </div>
-                    
+
                     </motion.h2>
-{/*   */}
+                    {/*   */}
 
                     {/* Row of small circular images + '+8 peoples' */}
                     <motion.div
@@ -119,6 +127,45 @@ export default function Body() {
                 </div>
 
             </div>
+
+            {/* body another part */}
+            <div className="join-con-div-main">
+
+                <div className="join-con-div-first">
+
+                    <div className="join-con-div-title">
+                        <p>Join the Conversation </p>
+                        <p id="blue-title">✨Bulid Connections</p>    
+                    </div>
+
+                    <div className="join-con-div-side-text">
+                        <p>Discover vibrant community, share your thoughts, and connect with like-minded individuals. Together, we grow.</p>
+                        <button className="join-con-button">Join Conversation →</button>
+                    </div>
+                </div>
+
+                <div className="join-con-div-middle">
+                    <img src={img1} className="join-con-img1"/>
+                    <img src={img2} className="join-con-img2"/>
+                </div>
+
+                <div className="join-con-div-last">
+                    <div className="join-con-div-last-title">
+                    <p>
+                        Where Connections Thrive <br /> and Ideas Flourish ✨ <b>2×</b>
+                    </p>
+                    </div>
+
+                    <div className="join-con-div-last-side-radio">
+                        <div className="join-con-radio">⦿ Happy Community </div>
+                        <div className="join-con-radio">⦿ 210% Boost in Engagement</div>
+                        <div className="join-con-radio">⦿ 172+ ranked communities</div>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     );
 }

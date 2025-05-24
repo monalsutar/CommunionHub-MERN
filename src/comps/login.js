@@ -62,7 +62,7 @@ export default function Login() {
                 <label htmlFor="remember_me">Remember me</label>
               </div>
               <div className="forgot-password">
-                <a href="#">Forgot Password?</a>
+                <Link to="/forgot-password">Forgot Password?</Link>
               </div>
             </div>
             <button type="submit" className="sign-in-btn">

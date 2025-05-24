@@ -1,0 +1,206 @@
+.add-event-section {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.add-event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 69%;
+    background-color: #C6C6C7;
+    padding: 3%;
+    border-radius: 20px;
+}
+
+
+.add-event-form-basic-details {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 18.72px;
+    font-weight: 700;
+    line-height: 21.528px;
+    color: rgb(51, 51, 51);
+}
+
+.add-event-form-event-type {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20.7px;
+    color: rgb(100, 116, 139);
+}
+
+.add-event-form-date-time {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    /* padding-left: 2%; */
+    /* border-radius: 20px; */
+    
+}
+
+.add-event-form-date {
+    width: 60%;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 1%;
+    border: none;
+    color: rgb(100, 116, 139);
+}
+
+/* Add this to ensure the map renders correctly */
+.leaflet-container {
+    height: 100% !important;
+    width: 100% !important;
+    z-index: 0;
+  }
+
+.add-event-form-time {
+    width: 40%;
+    height: 50px;
+    padding-left: 1%;
+    border-radius: 10px;
+    border: none;
+    color: rgb(100, 116, 139);
+}
+
+.add-event-form-category {
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: rgb(100, 116, 139);
+    padding-left: 1%;
+}
+
+.add-event-form-radio-group {
+    height: 8vh;
+    display: flex;
+    overflow-y: hidden;
+    gap: 2%;
+    /* background-color: green; */
+    align-items: center;
+    margin-top: 0;
+}
+
+.add-event-form-desc{
+    border-radius: 10px;
+    border: none;
+    padding-left: 1%;
+}
+
+.add-event-button {
+    background-color: green;
+    /* width: 80%; */
+}
+
+.add-event-form-header {
+    display: flex;
+    flex-direction: column;
+    /* background-color: pink; */
+    width: 80%;
+    height: 40vh;
+    /* gap: 10px; */
+    justify-content: space-evenly;
+}
+
+.add-event-form-title {
+    font-family: "Clash Display", sans-serif;
+    font-size: 47.2px;
+    font-weight: 700;
+    line-height: 56.64px;
+    color: rgb(0, 0, 0);
+}
+
+.add-event-form-title2 {
+    /* margin-top: 3%; */
+    font-family: "Clash Display", sans-serif;
+    font-size: 47.2px;
+    font-weight: 700;
+    line-height: 47.2px;
+    background: linear-gradient(45deg, #03B1EC, #002f40);
+    -webkit-background-clip: text;
+    color: transparent;
+    overflow-y: hidden;
+}
+
+.content-div {
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    width: 100%;
+    /* background-color: green; */
+    gap: 20px;
+}
+
+.add-event-form-p-tag {
+    /* line-height: 30px; */
+    width: 68%;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28.8px;
+    color: rgb(102, 102, 102);
+    justify-content: left;
+}
+
+.add-event-explore-button {
+    padding: 0.7%;
+    background-color: #002f40;
+    border-radius: 17px;
+    font-weight: 500;
+    line-height: 25px;
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    /* align-self:normal; */
+    align-self: self-start;
+    margin-left: 3%;
+    /* margin-top: 2%; */
+}
+
+.add-event-form-buttons{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 20px;
+}
+
+.add-event-form-submit-button{
+    padding: 1%;
+    background-color: #002f40;
+    border-radius: 17px;
+    font-weight: 500;
+    line-height: 25px;
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    /* align-self:normal; */
+    align-self: center;
+    /* margin-left: 3%; */
+    /* margin-top: 2%; */
+    width: 20%;
+    justify-content: center;
+}
+
+.add-event-form-view-event-button{
+    padding: 1%;
+    background-color: white;
+    border-radius: 17px;
+    font-weight: 500;
+    line-height: 25px;
+    color: rgb(100, 116, 139);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    /* align-self:normal; */
+    align-self: center;
+    /* margin-left: 3%; */
+    /* margin-top: 2%; */
+    width: 20%;
+    justify-content: center;
+}

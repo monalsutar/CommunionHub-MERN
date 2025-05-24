@@ -1,161 +1,162 @@
-import React, { useState } from "react";
-import E5 from '../assets/event (5).jpg';
-import E6 from '../assets/ganesh.jpg';
-import E7 from '../assets/shiv.jpg';
-import E8 from '../assets/holi.jpg';
-import E9 from '../assets/ram.jpeg';
-import E10 from '../assets/kishna.jpeg';
-import E11 from '../assets/event (2).jpg';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import './explore-event.css';
+import { useNavigate, useParams } from 'react-router-dom';
 
-
-import './all.css';
+// import { useNavigate } from "react-router-dom";
+import cardImg from "../assets/img11.jpg"
 
 function ExploreEvent() {
-    const [events, setEvents] = useState([
-        { 
-            id: 1, 
-            img: E6, 
-            name: "Ganesh Jayanti", 
-            date: "Saturday, February 8, 2025", 
-            location: "Mumbai", 
-            category: "Religious", 
-            info: "Celebrate the birth of Lord Ganesha with prayers, rituals, and cultural events." 
-        },
-        { 
-            id: 2, 
-            img: E7, 
-            name: "Mahashivratri", 
-            date: "Friday, February 28, 2025", 
-            location: "Varanasi", 
-            category: "Religious", 
-            info: "Join us for a night of devotion, fasting, and prayers dedicated to Lord Shiva." 
-        },
-        { 
-            id: 3, 
-            img: E8, 
-            name: "Holi Celebration", 
-            date: "Monday, March 17, 2025", 
-            location: "Delhi", 
-            category: "Cultural", 
-            info: "Enjoy the festival of colors with music, dance, and joyful celebrations." 
-        },
-        { 
-            id: 4, 
-            img: E5, 
-            name: "Christmas Evening", 
-            date: "Thursday, May 25, 2025", 
-            location: "Bangalore", 
-            category: "Social", 
-            info: "Celebrate Christmas with carols, gifts, and festive cheer in a warm community gathering." 
-        },
-        { 
-            id: 5, 
-            img: E9, 
-            name: "Shree Ram Navami", 
-            date: "Wednesday, April 9, 2025", 
-            location: "Ayodhya", 
-            category: "Religious", 
-            info: "Experience grand processions and devotional programs on the birth anniversary of Lord Rama." 
-        },
-        { 
-            id: 6, 
-            img: E10, 
-            name: "Shree Krishna Janmashtami", 
-            date: "Friday, August 15, 2025", 
-            location: "Mathura", 
-            category: "Religious", 
-            info: "Celebrate the birth of Lord Krishna with midnight prayers, bhajans, and festivities." 
-        },
-        { 
-            id: 7, 
-            img: E11, 
-            name: "Bubble Kids Party", 
-            date: "Sunday, July 20, 2025", 
-            location: "Chennai", 
-            category: "Charity", 
-            info: "A fun-filled event for kids with games, activities, and entertainment to support a noble cause." 
-        }
-    ]);
-    
 
+
+    const [events, setEvents] = useState([]);
     const [showForm, setShowForm] = useState(false);
-    const [newEvent, setNewEvent] = useState({ name: "", date: "", location: "", category: "", info: "" });
-    const [filter, setFilter] = useState("All");
+    const [newEvent, setNewEvent] = useState({
+        name: "",
+        date: "",
+        location: "",
+        category: "",
+        info: "",
 
-    // Handle input change
+    });
+    const [filter, setFilter] = useState("All");
+    const navigate = useNavigate();
+
+    // 🔄 Fetch events on mount
+    useEffect(() => {
+        axios.get("http://localhost:5000/api/events")
+            .then(res => setEvents(res.data))
+            .catch(err => console.error("Failed to fetch events", err));
+    }, []);
+
+    // 🔄 Handle input
     const handleInputChange = (e) => {
         setNewEvent({ ...newEvent, [e.target.name]: e.target.value });
     };
 
-    // Add new event
-    const addEvent = (e) => {
+    // 🔄 Add new event
+    const addEvent = async (e) => {
         e.preventDefault();
-        const newId = events.length + 1;
-        setEvents([...events, { ...newEvent, id: newId, img: E5 }]);
-        setShowForm(false);
-        setNewEvent({ name: "", date: "", location: "", category: "", info: "" });
+
+        try {
+            const res = await axios.post("http://localhost:5000/api/events", newEvent);
+            setEvents([...events, res.data.event]); // Append new event from backend
+            setShowForm(false);
+            setNewEvent({ name: "", date: "", location: "", category: "", info: "", img: "E6" });
+        } catch (err) {
+            console.error("Failed to add event", err);
+        }
     };
 
-    // Filter logic
+    // 🔄 Filter events based on the selected category
     const filteredEvents = filter === "All" ? events : events.filter(event => event.category === filter);
 
+
+    //this is for update
+    const handleEdit = (event) => {
+        navigate("/add-event", { state: { event } });
+    };
+
+    // 🔄 Delete event by ID
+    const handleDelete = async (id) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this event?");
+        if (!confirmDelete) return;
+
+        try {
+            await axios.delete(`http://localhost:5000/api/events/${id}`);
+            setEvents(events.filter(event => event._id !== id)); // Remove from UI
+        } catch (err) {
+            console.error("Failed to delete event", err);
+        }
+    };
+
+
+
     return (
-        <div className="event-section">
-            {/* Header with Buttons */}
+        <div className="explore-section">
             <div className="event-header">
-                <h2 className="event-title">🎉 Celebrate With Us! 🎉</h2>
-                
+                <h2 className="event-title">We Helped Communities Connect & Flourish</h2>
+                <p className="event-title-second">✦ Upcoming Events</p>
+
+                <div className="event-filter-section">
+                    <div className="event-filter-content">Today</div>
+                    <div className="event-filter-content">Tommorrow</div>
+                    <div className="event-filter-content">This Week</div>
+                    <div className="event-filter-content">Next Week</div>
+                    <div className="event-filter-content">This Month</div>
+
+                </div>
             </div>
+
             <div className="event-actions">
-                    <select className="filter-dropdown" onChange={(e) => setFilter(e.target.value)} value={filter}>
-                        <option value="All">All Categories</option>
-                        <option value="Religious">Religious</option>
-                        <option value="Social">Social</option>
-                        <option value="Charity">Charity</option>
-                        <option value="Cultural">Cultural</option>
-                    </select>
-                    <div className="add-btn" onClick={() => setShowForm(true)}>Add Event</div>
-                </div>
+                {/* <select className="filter-dropdown" onChange={(e) => setFilter(e.target.value)} value={filter}>
+                    <option value="All">All Categories</option>
+                    <option value="Religious">Religious</option>
+                    <option value="Social">Social</option>
+                    <option value="Charity">Charity</option>
+                    <option value="Cultural">Cultural</option>
+                </select> */}
 
-            {/* Add Event Popup Form */}
-            {showForm && (
-                <div className="event-popup">
-                    <form className="event-form" onSubmit={addEvent}>
-                        <h3>Add New Event</h3>
-                        <input type="text" name="name" placeholder="Event Title" value={newEvent.name} onChange={handleInputChange} required />
-                        <input type="date" name="date" value={newEvent.date} onChange={handleInputChange} required />
-                        <input type="text" name="location" placeholder="Location" value={newEvent.location} onChange={handleInputChange} required />
-                        <select name="category" value={newEvent.category} onChange={handleInputChange} required>
-                            <option value="">Select Category</option>
-                            <option value="Religious">Religious</option>
-                            <option value="Social">Social</option>
-                            <option value="Cultural">Cultural</option>
-                            <option value="Charity">Charity</option>
 
-                        </select>
-                        <textarea name="info" placeholder="Event Description" value={newEvent.info} onChange={handleInputChange} required></textarea>
-                        <div className="form-buttons">
-                            <div type="submit" className="submit-btn">Add Event</div>
-                            <div type="button" className="close-btn" onClick={() => setShowForm(false)}>Cancel</div>
+                {/* //disabled button */}
+                {localStorage.getItem("username") ? (
+                    <div className="add-event-button" onClick={() => navigate("/add-event")}>Plan your next Big Event</div>
+
+                ) : (
+                    <div
+                        className="add-btn disabled-btn"
+                        onClick={() => {
+                            alert("Please login to add events");
+                            navigate("/login");
+                        }}
+                    >
+                        Plan your next Big Event
+                    </div>
+                )}
+
+
+            </div>
+
+
+
+            <div className="db-event-grid">
+                
+
+                {events.map((event, index) => (
+                    
+                    <div key={index}  className="event-card-div" style={{
+                        backgroundPosition: `${(index * 49) % 100}% ${(index * 50) % 100}%`
+                      }}>
+                        {/* ✅ Add this below */}
+
+                        {/* {<img src={cardImg} alt={event.name} className="event-card-img" />} */}
+
+                        <div className="event-card-container">
+
+                            <h3 className="event-card-title">{event.name}</h3>
+                            <div className="event-card-date"><strong>Date:</strong> {event.date}</div>
+                            <div className="event-card-loc"><strong>Location:</strong> {event.location}</div>
+                            <div className="event-card-category"><strong>Category:</strong> {event.category}</div>
+                            <p className="event-card-info"> {event.info}</p>
+
+                            {/* <p><strong>Created By:</strong> {event.createdBy}</p> */}
+
+
+                            {/* Edit and Delete buttons */}
+                            <div className="event-card-buttons">
+
+                                <button onClick={() => handleEdit(event)} className="event-card-edit-button">✏️ Edit Event</button>
+
+                                <button className="event-card-delete-button" onClick={() => handleDelete(event._id)}>🗑️ Delete Event</button>
+                            </div>
+
                         </div>
-                    </form>
-                </div>
-            )}
-
-            {/* Display Filtered Events */}
-            <div className="events">
-                {filteredEvents.map((event) => (
-                    <div className="event-card" key={event.id}>
-                        <img src={event.img} alt={event.name} />
-                        <h3>{event.name}</h3>
-                        <p>{event.info}</p>
-                        <h4>📍 {event.location}</h4>
-                        <h4>📆 {event.date}</h4>
-                        <h4 className="category"><strong>Category:</strong> {event.category}</h4>
-                        <div className="view-event"><a href="#">View Event</a></div>
                     </div>
                 ))}
             </div>
+
+            <br></br>
+
         </div>
     );
 }

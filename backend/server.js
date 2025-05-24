@@ -4,6 +4,9 @@ const cors = require("cors");
 
 const app = express();
 
+require("dotenv").config();
+
+
 // CORS setup - allows frontend to talk to backend
 app.use(cors({
   origin: "http://localhost:3000",  // frontend origin
@@ -21,6 +24,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/communionDB")
 // Routes
 const authRoutes = require("./routes/auth");
 app.use("/api", authRoutes);
+
+const eventRoutes = require("./routes/event"); // ✅ NEW
+app.use("/api", eventRoutes); // ✅ NEW
 
 const PORT = 5000;
 app.listen(PORT, () => {

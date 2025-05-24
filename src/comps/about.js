@@ -20,10 +20,15 @@ function About() {
     return (
         <div>
             <div className="about">
-                <p className="title">Why Communion Rocks!</p>
+                <p className="title">
+               
+                    Why Communion Rocks! <br></br>
+                        
+                    ✦ Communion is more than just a platform — it's a vibrant space that unites people across faiths and beliefs. By fostering connection and collaboration, we turn differences into strengths, building a world where unity thrives.</p>
 
                 <p className="content">
-                    ✦ Communion is more than just a platform — it's a vibrant space that unites people across faiths and beliefs. By fostering connection and collaboration, we turn differences into strengths, building a world where unity thrives.
+               
+                    
 
                     <div className="slogan">
                         <p>"Together, we rise — stronger, united, and inspired."</p>

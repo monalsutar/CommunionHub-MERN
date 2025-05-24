@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function SignUp() {
     const [formData, setFormData] = useState({
         name: "",
+        mobile: "",
         email: "",
         password: ""
     });
@@ -47,6 +48,15 @@ export default function SignUp() {
                                 name="name"
                                 type="text"
                                 placeholder="Enter your Full Name"
+                                required
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                name="mobile"
+                                type="number"
+                                placeholder="Enter your mobile number"
                                 required
                                 onChange={handleChange}
                             />

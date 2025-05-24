@@ -4,7 +4,7 @@ import "./all.css"; // Import the CSS file
 import logo from "../assets/footer-logo.png"
 import Home from "./body"
 import About from "./about"
-import Event from "./events"
+import Event from "./event-section"
 import { Link } from "react-router-dom";
 
 

@@ -31,9 +31,9 @@ function Header() {
             </button>
             <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
                 <Link to="/" className="nav-item">Home</Link>
-                <Link to="/" className="nav-item">About</Link>
-                <Link to="/events" className="nav-item">Events</Link>
-                <Link to="/contact" className="nav-item">Contact Us</Link>
+                <Link to="/" className="nav-item">About ›</Link>
+                <Link to="/events" className="nav-item">Events ›</Link>
+                <Link to="/contact" className="nav-item">Contact Us ›</Link>
 
             </nav>
             <div className="header-right">
