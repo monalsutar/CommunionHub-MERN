@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# CommunionHub – Unified Portal for Community Events and Engagement
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![License](https://img.shields.io/badge/license-MIT-green)
+![Tech Stack](https://img.shields.io/badge/MERN-Stack-blue)
 
-## Available Scripts
+## 📝 Project Overview
 
-In the project directory, you can run:
+**CommunionHub** is a full-stack web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It serves as a centralized portal for community members, students, or organizations to **create**, **view**, and **manage** events in a structured and accessible format.
 
-### `npm start`
+- All events are **publicly visible**
+- Only **authenticated users** can create or delete events
+- Aimed at academic institutions, local clubs, and small communities
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 🔐 **User Authentication** – Register and login with email and password
+- 🗓️ **Event Creation** – Add events with title, description, date, category, and location
+- 🗂️ **Event Listing Dashboard** – View all events in a clean, card-based layout
+- 🧹 **Event Deletion** – Authenticated users can delete their own events
+- 📱 **Responsive Design** – Mobile-first UI with clean navigation
+- ⚙️ **RESTful API Integration** – Seamless frontend-backend communication
 
-### `npm test`
+## 🔧 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Layer         | Technology               |
+|---------------|---------------------------|
+| Frontend      | React.js, React Router, Axios, Bootstrap |
+| Backend       | Node.js, Express.js       |
+| Database      | MongoDB Atlas             |
+| Authentication| Custom login/registration |
+| Hosting       | Vercel / Render / Netlify (Frontend), Render / Railway (Backend) |
 
-### `npm run build`
+## 🖼️ Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://github.com/user-attachments/assets/0bcb675f-4dfc-4222-aa66-3bf90b090158)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://github.com/user-attachments/assets/8a75fb61-bf81-4f14-a6e3-13c7167307a2)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://github.com/user-attachments/assets/a4e1c0d2-25da-4d58-85ff-77fc22e8b1a2)
 
-### `npm run eject`
+![image](https://github.com/user-attachments/assets/6d3c2e1c-83aa-4128-b4f1-4924df4b5742)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## 📂 Folder Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+CommunionHub-MERN/
+│
+├── backend/
+│   ├── models/         # Mongoose schemas
+│   ├── routes/         # API routes for users and events
+│   ├── controllers/    # Business logic
+│   └── server.js       # Entry point for Express server
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/ # React components (Navbar, EventCard, etc.)
+│   │   ├── pages/      # Pages like Home, Login, Signup
+│   │   └── App.js
+│   └── public/
+│
+└── README.md
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+⚙️ Setup Instructions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Clone the Repository
+  git clone https://github.com/monalsutar/CommunionHub-MERN.git
+  cd CommunionHub-MERN
+2. Install Dependencies
+Backend
+  cd backend
+  npm install
+Frontend
+  cd ../frontend
+  npm install
+3. Configure Environment Variables
+  Create a .env file in /backend:
+  MONGODB_URI=your_mongodb_connection_string
+  JWT_SECRET=your_jwt_secret
+  PORT=5000
+4. Run the App
+Backend
+  cd backend
+  npm start
+Frontend
+  cd frontend
+  npm start
+Visit http://localhost:3000 to access the application.
 
-### Analyzing the Bundle Size
+✅ Future Enhancements
+Event filtering and search
+Calendar view for events
+Email notifications
+Admin panel with analytics
+RSVP functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🙋‍♀️ Author
+👤 Monal Gajanan Sutar
+💼 MERN Developer Intern – Codexlabz Technologies
+📧 Email: 2253010@ritindia.edu
