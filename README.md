@@ -93,12 +93,22 @@ Visit http://localhost:3000 to access the application.
 
 ✅ Future Enhancements
 Event filtering and search
+
 Calendar view for events
+
 Email notifications
+
 Admin panel with analytics
+
 RSVP functionality
 
 🙋‍♀️ Author
+
+
 👤 Monal Gajanan Sutar
+
+
 💼 MERN Developer Intern – Codexlabz Technologies
+
+
 📧 Email: 2253010@ritindia.edu
