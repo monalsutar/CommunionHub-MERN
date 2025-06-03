@@ -45,7 +45,7 @@
 
 
 ## 📂 Folder Structure
-
+```bash
 CommunionHub-MERN/
 │
 ├── backend/
@@ -63,6 +63,7 @@ CommunionHub-MERN/
 │
 └── README.md
 
+```
 
 ⚙️ Setup Instructions
 
