@@ -26,7 +26,7 @@
 |---------------|---------------------------|
 | Frontend      | React.js, React Router, Axios, Bootstrap |
 | Backend       | Node.js, Express.js       |
-| Database      | MongoDB Atlas             |
+| Database      | MongoDB Compass             |
 | Authentication| Custom login/registration |
 | Hosting       | Vercel / Render / Netlify (Frontend), Render / Railway (Backend) |
 
